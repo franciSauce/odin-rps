@@ -20,7 +20,28 @@ const results = document.querySelector(".result");
 results.setAttribute("style", "white-space: pre");
 
 // Function to play a round of the game
+function playRound(playerChoice) {
+    if (gameOver) return;
+    const computerChoice = getComputerChoice();
+    let resultMessage = "";
 
+    if (playerChoice === computerChoice) {
+        resultMessage = `You both picked ${playerChoice}.\r\nIt's a tie. Neither wins`;
+    } else if (
+        (playerChoice === "rock" && computerChoice === "scissors") ||
+        (playerChoice === "paper" && computerChoice === "rock") ||
+        (playerChoice === "scissors" && computerChoice === "paper")
+    ) {
+        playerWin++;
+        resultMessage = `You picked ${playerChoice}. Computer picked ${computerChoice}.\r\n${playerChoice} beats ${computerChoice}. You win.`;
+    } else {
+        computerWin++;
+        resultMessage = `You picked ${playerChoice}. Computer picked ${computerChoice}.\r\n${computerChoice} beats ${playerChoice}. You lose.`;
+    }
+
+    results.textContent = `${resultMessage}\r\n\r\nPlayer: ${playerWin}\r\nComputer: ${computerWin}`;
+     
+}
 // function getComputerChoice() {
 //     let choices = ["rock","paper","scissors"];
 //     let random = Math.floor(Math.random() * 3);

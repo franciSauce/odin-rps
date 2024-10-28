@@ -27,3 +27,23 @@ button {
     width: 250px;
     border-radius: 25px;
 }
+
+#rock {
+
+}
+#paper {
+
+}
+#scissors {
+
+}
+#rock:active,
+#paper:active,
+#scissors:active {
+    transform: translateY(10px);
+}
+#rock:hover,
+#paper:hover,
+#scissors:hover {
+    transform: scale(1.05);
+}

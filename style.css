@@ -47,3 +47,19 @@ button {
 #scissors:hover {
     transform: scale(1.05);
 }
+
+.play-again {
+
+}
+
+.play-again:active {
+    transform: scale(1.1);
+}
+.play-again:hover {
+    color: white;
+    border: white;
+}
+
+.hidden {
+    visibility: hidden;
+}

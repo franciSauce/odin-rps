@@ -1,6 +1,3 @@
-// Available choices for the game
-const choices = ["rock","paper","scissors"];
-
 // Variables to keep track of wins
 let playerWin = 0;
 let computerWin = 0;
@@ -15,6 +12,9 @@ paperBtn.addEventListener("click", () => playRound("paper"));
 
 const scissorsBtn = document.querySelector("#scissors");
 scissorsBtn.addEventListener("click", () => playRound("scissors"));
+
+const playAgainBtn = document.querySelector(".play-again");
+playAgainBtn.addEventListener("click", resetGame);
 
 const results = document.querySelector(".result");
 results.setAttribute("style", "white-space: pre");
@@ -40,7 +40,34 @@ function playRound(playerChoice) {
     }
 
     results.textContent = `${resultMessage}\r\n\r\nPlayer: ${playerWin}\r\nComputer: ${computerWin}`;
-     
+
+    // Check if either player has reached 5 wins to end the game
+    if (playerWin === 5) {
+        endGame ("You Win!");
+    } else if (computerWin === 5) {
+        endGame ("You lose!");
+    }
+}
+
+//Functions
+function getComputerChoice() {
+    let choices = ["rock","paper","scissors"];
+    let random = Math.floor(Math.random() * choices.length);
+    return choices[random];
+}
+
+function endGame(message) {
+    results.textContent = `${message}\r\n\r\nPlayer: ${playerWin}\r\nComputer: ${computerWin}`;
+    gameOver = true;
+    document.querySelector(".play-again").classList.remove("hidden");
+}
+
+function resetGame() {
+    playerWin = 0;
+    computerWin = 0;
+    gameOver = false;
+    results.textContent = "";
+    playAgainBtn.classList.add("hidden");
 }
 // function getComputerChoice() {
 //     let choices = ["rock","paper","scissors"];

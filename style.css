@@ -6,7 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: black;
+    background-color: rgb(12, 9, 9);
     font-size: 28px;
 }
 
@@ -25,6 +25,7 @@ body {
 
 .result {
     margin: 25px 0;
+    font-family: monospace;
 }
 
 button {
@@ -32,6 +33,7 @@ button {
     width: 250px;
     border-radius: 25px;
     border: solid 2px rgb(185, 140, 56);
+    cursor: pointer;
 }
 
 #rock {

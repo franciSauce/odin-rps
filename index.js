@@ -13,7 +13,7 @@ paperBtn.addEventListener("click", () => playRound("paper"));
 const scissorsBtn = document.querySelector("#scissors");
 scissorsBtn.addEventListener("click", () => playRound("scissors"));
 
-const playAgainBtn = document.querySelector(".play-again");
+const playAgainBtn = document.querySelector("#play-again");
 playAgainBtn.addEventListener("click", resetGame);
 
 const results = document.querySelector(".result");
@@ -59,7 +59,7 @@ function getComputerChoice() {
 function endGame(message) {
     results.textContent = `${message}\r\n\r\nPlayer: ${playerWin}\r\nComputer: ${computerWin}`;
     gameOver = true;
-    document.querySelector(".play-again").classList.remove("hidden");
+    document.querySelector("#play-again").classList.remove("hidden");
 }
 
 function resetGame() {
